@@ -32,3 +32,39 @@ The pipeline performs the following tasks:
 
 ## Dataset Structure
 The script expects the dataset to be unzipped and organized in the following structure:
+
+├── Dataset_Extracted │ └── data_100 │ ├── cnn_five_para │ ├── FOX_five_para │ ├── NYT_five_para │ └── WSJ_five_para
+
+*Note: Ensure the `DATA_DIR` variable in the script matches your local folder path.*
+
+## Usage
+
+1.  **Run the Pipeline**
+    Execute the Python script or Jupyter Notebook:
+    ```bash
+    python gun_violence_analysis.py
+    ```
+    *(Or open the notebook and run all cells)*
+
+2.  **Process Flow**
+    * The script first loads and cleans the text data.
+    * It applies `fastcoref` to resolve entity mentions.
+    * It extracts descriptors and generates semantic clusters.
+    * It prints the statistical results (Chi-Square tests) to the console.
+    * It displays a heatmap visualization of frame distributions.
+
+## Output
+The project generates the following outputs:
+
+* **Console Output:** Statistical significance results (p-values) for each framing cluster.
+* **Visualizations:** A heatmap showing the frequency of specific frames across different news outlets.
+* **Data Export:** A CSV file named `Final_Processed_Dataset_with_Clusters.csv`. This file contains:
+    * `outlet`: The news source (CNN, FOX, etc.)
+    * `context`: The full sentence containing the entity.
+    * `descriptors_list`: The specific words extracted (e.g., "young", "fired").
+    * `cluster_label`: The semantic category assigned to the description.
+
+## Methodology Notes
+* **Coreference Resolution:** Utilized `fastcoref` (LingMess architecture) for high-speed, accurate entity resolution.
+* **Clustering:** Employed Sentence-BERT (`all-MiniLM-L6-v2`) for embeddings, reduced via UMAP, and clustered using DBSCAN (with a K-Means fallback for sparse data).
+* **Statistical Test:** Pearson’s Chi-Squared Test of Homogeneity ($p < 0.05$ threshold).
