@@ -64,6 +64,17 @@ The project generates the following outputs:
     * `descriptors_list`: The specific words extracted (e.g., "young", "fired").
     * `cluster_label`: The semantic category assigned to the description.
 
+<img width="1116" height="590" alt="image" src="https://github.com/user-attachments/assets/3dc18657-dfbc-411e-b754-a3b4c01cbefe" />
+
+--- Chi-Square Test Results ---
+Frame                                    | P-Value    | Result
+-----------------------------------------------------------------
+Passive State (was, being)               | 0.1409     | Not Significant
+Investigation Status (active, identified) | 0.9693     | Not Significant
+Attribution (said, told)                 | 0.2371     | Not Significant
+Identity & Outcome (dead, former, old)   | 0.0068     | **SIGNIFICANT**
+Event Context (transpired)               | 0.0050     | **SIGNIFICANT**
+
 ## Methodology Notes
 * **Coreference Resolution:** Utilized `fastcoref` (LingMess architecture) for high-speed, accurate entity resolution.
 * **Clustering:** Employed Sentence-BERT (`all-MiniLM-L6-v2`) for embeddings, reduced via UMAP, and clustered using DBSCAN (with a K-Means fallback for sparse data).
