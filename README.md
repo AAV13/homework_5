@@ -67,12 +67,18 @@ The project generates the following outputs:
 <img width="1116" height="590" alt="image" src="https://github.com/user-attachments/assets/3dc18657-dfbc-411e-b754-a3b4c01cbefe" />
 
 --- Chi-Square Test Results ---
+
 Frame                                    | P-Value    | Result
+
 -----------------------------------------------------------------
 Passive State (was, being)               | 0.1409     | Not Significant
+
 Investigation Status (active, identified) | 0.9693     | Not Significant
+
 Attribution (said, told)                 | 0.2371     | Not Significant
+
 Identity & Outcome (dead, former, old)   | 0.0068     | **SIGNIFICANT**
+
 Event Context (transpired)               | 0.0050     | **SIGNIFICANT**
 
 ## Methodology Notes
